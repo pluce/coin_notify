@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
     'rest_auth.registration',
 
     'api',
@@ -134,3 +135,14 @@ AUTH_USER_MODEL = 'users.CustomUser'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SITE_ID = 1
+
+DEFAULT_AUTHENTICATION_CLASSES = 'rest_framework.authentication.SessionAuthentication'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}

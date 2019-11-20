@@ -1,10 +1,21 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from . import views
+from django.urls import include, path
+from .views import UsersView, TestAuthView
+from rest_framework.urlpatterns import format_suffix_patterns
 
-router = DefaultRouter()
-router.register(r'users', views.UsersView)
+users_list = UsersView.as_view({
+    'get' : 'list',
+    'post' : 'create'
+})
 
-urlpatterns = [
-    path('', include(router.urls)),
-]
+users_detail = UsersView.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'delete': 'destroy'
+})
+
+urlpatterns = format_suffix_patterns([
+    path('users/', users_list, name='user-list'),
+    path('users/<int:pk>', users_detail, name='user-detail'),
+    path('test_auth/', TestAuthView.as_view(), name='test_auth', ),
+])
+
