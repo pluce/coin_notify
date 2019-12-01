@@ -1,5 +1,5 @@
-import sys
-sys.path.append('../')
+""" import sys
+sys.path.append('../') """
 from alert.send_mail import send_mail_if
 
 def my_scheduled_job():
