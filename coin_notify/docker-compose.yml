@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: bash -c "
+        apt-get update
+        && apt-get --assume-yes install cron
+        && python manage.py crontab add
+        && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"

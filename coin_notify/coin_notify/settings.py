@@ -154,3 +154,9 @@ REST_FRAMEWORK = {
 CRONJOBS = [
     ('*/1 * * * *', 'coin_notify.cron.my_scheduled_job')
 ]
+
+# Email settings
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'coinnotify42@gmail.com'
+EMAIL_HOST_PASSWORD = 'ekyvmmczwqnfyljd'
+EMAIL_PORT = '465'
