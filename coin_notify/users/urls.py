@@ -1,5 +1,5 @@
 from django.urls import include, path
-from .views import UsersView, TestAuthView
+from .views import UsersView
 from rest_framework.urlpatterns import format_suffix_patterns
 
 users_list = UsersView.as_view({
@@ -17,5 +17,4 @@ urlpatterns = format_suffix_patterns([
 
     path('users/', users_list, name='user-list'),
     path('users/<int:pk>/', users_detail, name='user-detail'),
-    path('test_auth/', TestAuthView.as_view(), name='test_auth'),
 ])

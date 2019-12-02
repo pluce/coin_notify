@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_auth.registration',
+    'django_crontab',
+
+    'django_extensions',
 
     'api',
     'users',
@@ -147,3 +150,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
 }
+
+CRONJOBS = [
+    ('*/1 * * * *', 'coin_notify.cron.my_scheduled_job')
+]
