@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'django_crontab',
 
+    'django_extensions',
+
     'api',
     'users',
     'alert',

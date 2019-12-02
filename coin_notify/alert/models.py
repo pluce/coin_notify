@@ -8,6 +8,10 @@ AVAILABLE_CURRENCY = [
 ]
 
 class Alert(models.Model):
+    """
+    bigger_than : tell if the alert is for BTC rate bigger or smaller than alert value
+                  if true alert will be send if BTC rate is bigger than alert value
+    """
     created = models.DateTimeField(auto_now=True)
     currency = models.CharField(choices=AVAILABLE_CURRENCY, default='BTC', max_length=255)
     value = models.IntegerField(null=False)
