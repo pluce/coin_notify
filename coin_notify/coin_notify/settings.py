@@ -136,7 +136,6 @@ STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SITE_ID = 1
 
@@ -156,7 +155,9 @@ CRONJOBS = [
 ]
 
 # Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'coinnotify42@gmail.com'
 EMAIL_HOST_PASSWORD = 'ekyvmmczwqnfyljd'
-EMAIL_PORT = '465'
+EMAIL_PORT = '587'
