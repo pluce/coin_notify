@@ -142,7 +142,6 @@ STATICFILES_DIRS = [
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-
 SITE_ID = 1
 
 DEFAULT_AUTHENTICATION_CLASSES = 'rest_framework.authentication.SessionAuthentication'

@@ -1,6 +1,11 @@
 openapi: 3.0.2
 info:
-  description: "This all the path for the CoinNotify API. You need to specify an Authorization:Token for all path."
+  description: |+
+    This is all the path for the CoinNotify API.
+
+    You need to specify an Authorization:Token for all path. 
+
+    For every path with the "{format}" key-word you can specify the format of the response (JSON or HTML)
   version: "1.0.0"
   title: "CoinNotify"
   contact:
@@ -36,7 +41,7 @@ paths:
                   - username
           description: ''
     post:
-      summary: "Add a new user in database"
+      summary: "Add a new user in the user table. Use \"/api/rest-auth/registration/\" to add a real user with a password"
       operationId: createCustomUser
       parameters: []
       requestBody:
