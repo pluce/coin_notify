@@ -13,6 +13,9 @@ def get_rate_BTC():
     return response.json()
 
 def send(alert, response):
+    """
+    Format and send the email
+    """
     if alert.bigger_than == 1:
         msg = ("""Hello %s.\n\nThis is an email to alert you that bitcoin """
             """rate get beyond %s today %s""" %(
@@ -30,14 +33,17 @@ def send(alert, response):
     )
 
 def send_mail_if():
+    """
+    Get bitcoin current value and compare it to all alert.
+    Call send() and delete the alert if the alert conditions are positive 
+    """
     response = get_rate_BTC()
     queryset = models.Alert.objects.all()
     for alrt in queryset:
         if (alrt.bigger_than == 1 and alrt.value < response['rate']) \
         or (alrt.bigger_than == 0 and alrt.value > response['rate']):
             send(alrt, response)
-            #delete alert
+            alrt.delete()
         
-
 def run():
     send_mail_if()

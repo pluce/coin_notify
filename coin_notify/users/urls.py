@@ -13,11 +13,6 @@ users_detail = UsersView.as_view({
     'delete': 'destroy'
 })
 
-#urlpatterns = format_suffix_patterns([
-#    path('users/', users_list, name='user-list'),
-#    path('users/<int:pk>/', users_detail, name='user-detail'),
-#])
-
 urlpatterns = [
     path('users/', users_list, name='user-list'),
     path('users/<int:pk>/', users_detail, name='user-detail'),

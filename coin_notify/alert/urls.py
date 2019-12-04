@@ -13,14 +13,7 @@ Alert_detail = AlertView.as_view({
     'delete': 'destroy'
 })
 
-#urlpatterns = format_suffix_patterns([
-#
-#    path('alert/', Alert_list, name='alert-list'),
-#    path('alert/<int:pk>/', Alert_detail, name='alert-detail'),
-#])
-
 urlpatterns = [
     path('alert/', Alert_list, name='alert-list'),
     path('alert/<int:pk>/', Alert_detail, name='alert-detail'),
 ]
-
