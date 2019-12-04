@@ -1,0 +1,1034 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/users/:
+    get:
+      operationId: listCustomUsers
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                      readOnly: true
+                    username:
+                      type: string
+                      description: Required. 150 characters or fewer. Letters, digits
+                        and @/./+/-/_ only.
+                      pattern: ^[\w.@+-]+$
+                      maxLength: 150
+                    email:
+                      type: string
+                      format: email
+                      maxLength: 254
+                  required:
+                  - username
+          description: ''
+    post:
+      operationId: createCustomUser
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                username:
+                  type: string
+                  description: Required. 150 characters or fewer. Letters, digits
+                    and @/./+/-/_ only.
+                  pattern: ^[\w.@+-]+$
+                  maxLength: 150
+                email:
+                  type: string
+                  format: email
+                  maxLength: 254
+              required:
+              - username
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+$
+                    maxLength: 150
+                  email:
+                    type: string
+                    format: email
+                    maxLength: 254
+                required:
+                - username
+          description: ''
+  /api/users{format}:
+    get:
+      operationId: listCustomUsers
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                      readOnly: true
+                    username:
+                      type: string
+                      description: Required. 150 characters or fewer. Letters, digits
+                        and @/./+/-/_ only.
+                      pattern: ^[\w.@+-]+$
+                      maxLength: 150
+                    email:
+                      type: string
+                      format: email
+                      maxLength: 254
+                  required:
+                  - username
+          description: ''
+    post:
+      operationId: createCustomUser
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                username:
+                  type: string
+                  description: Required. 150 characters or fewer. Letters, digits
+                    and @/./+/-/_ only.
+                  pattern: ^[\w.@+-]+$
+                  maxLength: 150
+                email:
+                  type: string
+                  format: email
+                  maxLength: 254
+              required:
+              - username
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+$
+                    maxLength: 150
+                  email:
+                    type: string
+                    format: email
+                    maxLength: 254
+                required:
+                - username
+          description: ''
+  /api/users/{id}/:
+    get:
+      operationId: retrieveCustomUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+$
+                    maxLength: 150
+                  email:
+                    type: string
+                    format: email
+                    maxLength: 254
+                required:
+                - username
+          description: ''
+    put:
+      operationId: updateCustomUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                username:
+                  type: string
+                  description: Required. 150 characters or fewer. Letters, digits
+                    and @/./+/-/_ only.
+                  pattern: ^[\w.@+-]+$
+                  maxLength: 150
+                email:
+                  type: string
+                  format: email
+                  maxLength: 254
+              required:
+              - username
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+$
+                    maxLength: 150
+                  email:
+                    type: string
+                    format: email
+                    maxLength: 254
+                required:
+                - username
+          description: ''
+    delete:
+      operationId: destroyCustomUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /api/users/{id}{format}:
+    get:
+      operationId: retrieveCustomUser
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+$
+                    maxLength: 150
+                  email:
+                    type: string
+                    format: email
+                    maxLength: 254
+                required:
+                - username
+          description: ''
+    put:
+      operationId: updateCustomUser
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                username:
+                  type: string
+                  description: Required. 150 characters or fewer. Letters, digits
+                    and @/./+/-/_ only.
+                  pattern: ^[\w.@+-]+$
+                  maxLength: 150
+                email:
+                  type: string
+                  format: email
+                  maxLength: 254
+              required:
+              - username
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+$
+                    maxLength: 150
+                  email:
+                    type: string
+                    format: email
+                    maxLength: 254
+                required:
+                - username
+          description: ''
+    delete:
+      operationId: destroyCustomUser
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /api/alert/:
+    get:
+      operationId: listAlerts
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                      readOnly: true
+                    currency:
+                      enum:
+                      - BTC
+                    value:
+                      type: integer
+                    bigger_than:
+                      type: boolean
+                  required:
+                  - value
+          description: ''
+    post:
+      operationId: createAlert
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                currency:
+                  enum:
+                  - BTC
+                value:
+                  type: integer
+                bigger_than:
+                  type: boolean
+              required:
+              - value
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  currency:
+                    enum:
+                    - BTC
+                  value:
+                    type: integer
+                  bigger_than:
+                    type: boolean
+                required:
+                - value
+          description: ''
+  /api/alert{format}:
+    get:
+      operationId: listAlerts
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                      readOnly: true
+                    currency:
+                      enum:
+                      - BTC
+                    value:
+                      type: integer
+                    bigger_than:
+                      type: boolean
+                  required:
+                  - value
+          description: ''
+    post:
+      operationId: createAlert
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                currency:
+                  enum:
+                  - BTC
+                value:
+                  type: integer
+                bigger_than:
+                  type: boolean
+              required:
+              - value
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  currency:
+                    enum:
+                    - BTC
+                  value:
+                    type: integer
+                  bigger_than:
+                    type: boolean
+                required:
+                - value
+          description: ''
+  /api/alert/{id}/:
+    get:
+      operationId: retrieveAlert
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this alert.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  currency:
+                    enum:
+                    - BTC
+                  value:
+                    type: integer
+                  bigger_than:
+                    type: boolean
+                required:
+                - value
+          description: ''
+    put:
+      operationId: updateAlert
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this alert.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                currency:
+                  enum:
+                  - BTC
+                value:
+                  type: integer
+                bigger_than:
+                  type: boolean
+              required:
+              - value
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  currency:
+                    enum:
+                    - BTC
+                  value:
+                    type: integer
+                  bigger_than:
+                    type: boolean
+                required:
+                - value
+          description: ''
+    delete:
+      operationId: destroyAlert
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this alert.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /api/alert/{id}{format}:
+    get:
+      operationId: retrieveAlert
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this alert.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  currency:
+                    enum:
+                    - BTC
+                  value:
+                    type: integer
+                  bigger_than:
+                    type: boolean
+                required:
+                - value
+          description: ''
+    put:
+      operationId: updateAlert
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this alert.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                currency:
+                  enum:
+                  - BTC
+                value:
+                  type: integer
+                bigger_than:
+                  type: boolean
+              required:
+              - value
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  currency:
+                    enum:
+                    - BTC
+                  value:
+                    type: integer
+                  bigger_than:
+                    type: boolean
+                required:
+                - value
+          description: ''
+    delete:
+      operationId: destroyAlert
+      parameters:
+      - name: format
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this alert.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /api/rest-auth/logout/:
+    get:
+      operationId: listLogouts
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
+    post:
+      operationId: CreateLogout
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: ''
+  /api/rest-auth/user/:
+    get:
+      operationId: RetrieveUserDetails
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  pk:
+                    type: integer
+                    readOnly: true
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+$
+                    maxLength: 150
+                  email:
+                    type: string
+                    format: email
+                    readOnly: true
+                  first_name:
+                    type: string
+                    maxLength: 30
+                  last_name:
+                    type: string
+                    maxLength: 150
+                required:
+                - username
+          description: ''
+    put:
+      operationId: UpdateUserDetails
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                username:
+                  type: string
+                  description: Required. 150 characters or fewer. Letters, digits
+                    and @/./+/-/_ only.
+                  pattern: ^[\w.@+-]+$
+                  maxLength: 150
+                first_name:
+                  type: string
+                  maxLength: 30
+                last_name:
+                  type: string
+                  maxLength: 150
+              required:
+              - username
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  pk:
+                    type: integer
+                    readOnly: true
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+$
+                    maxLength: 150
+                  email:
+                    type: string
+                    format: email
+                    readOnly: true
+                  first_name:
+                    type: string
+                    maxLength: 30
+                  last_name:
+                    type: string
+                    maxLength: 150
+                required:
+                - username
+          description: ''
+    patch:
+      operationId: PartialUpdateUserDetails
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                username:
+                  type: string
+                  description: Required. 150 characters or fewer. Letters, digits
+                    and @/./+/-/_ only.
+                  pattern: ^[\w.@+-]+$
+                  maxLength: 150
+                first_name:
+                  type: string
+                  maxLength: 30
+                last_name:
+                  type: string
+                  maxLength: 150
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  pk:
+                    type: integer
+                    readOnly: true
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+$
+                    maxLength: 150
+                  email:
+                    type: string
+                    format: email
+                    readOnly: true
+                  first_name:
+                    type: string
+                    maxLength: 30
+                  last_name:
+                    type: string
+                    maxLength: 150
+                required:
+                - username
+          description: ''
+  /api/rest-auth/password/reset/:
+    post:
+      operationId: CreatePasswordReset
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                email:
+                  type: string
+                  format: email
+              required:
+              - email
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  email:
+                    type: string
+                    format: email
+                required:
+                - email
+          description: ''
+  /api/rest-auth/password/reset/confirm/:
+    post:
+      operationId: CreatePasswordResetConfirm
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                new_password1:
+                  type: string
+                  maxLength: 128
+                new_password2:
+                  type: string
+                  maxLength: 128
+                uid:
+                  type: string
+                token:
+                  type: string
+              required:
+              - new_password1
+              - new_password2
+              - uid
+              - token
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  new_password1:
+                    type: string
+                    maxLength: 128
+                  new_password2:
+                    type: string
+                    maxLength: 128
+                  uid:
+                    type: string
+                  token:
+                    type: string
+                required:
+                - new_password1
+                - new_password2
+                - uid
+                - token
+          description: ''
+  /api/rest-auth/login/:
+    post:
+      operationId: CreateLogin
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                username:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+              required:
+              - password
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  username:
+                    type: string
+                  email:
+                    type: string
+                    format: email
+                  password:
+                    type: string
+                required:
+                - password
+          description: ''
+  /api/rest-auth/password/change/:
+    post:
+      operationId: CreatePasswordChange
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                new_password1:
+                  type: string
+                  maxLength: 128
+                new_password2:
+                  type: string
+                  maxLength: 128
+              required:
+              - new_password1
+              - new_password2
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  new_password1:
+                    type: string
+                    maxLength: 128
+                  new_password2:
+                    type: string
+                    maxLength: 128
+                required:
+                - new_password1
+                - new_password2
+          description: ''
+  /api/rest-auth/registration/:
+    post:
+      operationId: CreateRegister
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                username:
+                  type: string
+                  maxLength: 150
+                  minLength: 1
+                email:
+                  type: string
+                  format: email
+                password1:
+                  type: string
+                  writeOnly: true
+                password2:
+                  type: string
+                  writeOnly: true
+              required:
+              - username
+              - password1
+              - password2
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  username:
+                    type: string
+                    maxLength: 150
+                    minLength: 1
+                  email:
+                    type: string
+                    format: email
+                required:
+                - username
+          description: ''
+  /api/rest-auth/registration/verify-email/:
+    post:
+      operationId: CreateVerifyEmail
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                key:
+                  type: string
+              required:
+              - key
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  key:
+                    type: string
+                required:
+                - key
+          description: ''

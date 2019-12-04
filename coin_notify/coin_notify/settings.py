@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'django_crontab',
 
+    'rest_framework_swagger',
     'django_extensions',
 
     'api',
@@ -69,7 +70,9 @@ ROOT_URLCONF = 'coin_notify.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,6 +136,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -148,6 +154,19 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+}
+
+LOGIN_URL = 'rest_auth:login'
+LOGOUT_URL = 'rest_auth:logout'
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'api_key': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization'
+        }
+    },
 }
 
 CRONJOBS = [
