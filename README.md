@@ -1,6 +1,24 @@
 # CoinNotify
 
-You can create a new user with curl like this :
+## Launching the server
+Install the requierements with :
+```
+pip3 install -r coin_notify/requirements.txt 
+```
+
+Add the cronjob for the alert system :
+```
+python coin_notify/manage.py crontab add
+```
+
+Launch the server with : 
+```
+python coin_notify/manage.py runserver
+```
+
+## Using the API
+
+You can create a new user with curl, like this :
 ```
 curl -d "username=user&email=user@example.com&password1=12345678secret&password2=12345678secret" -X POST http://localhost:8000/api/rest-auth/registration/
 ```
