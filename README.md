@@ -1,4 +1,4 @@
-# coin_notify
+# CoinNotify
 
 You can create a new user with curl like this :
 ```
