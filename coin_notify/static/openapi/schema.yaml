@@ -1,10 +1,14 @@
 openapi: 3.0.2
 info:
-  title: ''
-  version: ''
+  description: "This all the path for the CoinNotify API. You need to specify an Authorization:Token for all path."
+  version: "1.0.0"
+  title: "CoinNotify"
+  contact:
+    email: "raphaeltin98@gmail.com"
 paths:
   /api/users/:
     get:
+      summary: "Find all users in database"
       operationId: listCustomUsers
       parameters: []
       responses:
@@ -32,6 +36,7 @@ paths:
                   - username
           description: ''
     post:
+      summary: "Add a new user in database"
       operationId: createCustomUser
       parameters: []
       requestBody:
@@ -157,6 +162,7 @@ paths:
           description: ''
   /api/users/{id}/:
     get:
+      summary: "Find user by ID"
       operationId: retrieveCustomUser
       parameters:
       - name: id
@@ -188,6 +194,7 @@ paths:
                 - username
           description: ''
     put:
+      summary: "Modify user informations"
       operationId: updateCustomUser
       parameters:
       - name: id
@@ -236,6 +243,7 @@ paths:
                 - username
           description: ''
     delete:
+      summary: "Delete user"
       operationId: destroyCustomUser
       parameters:
       - name: id
@@ -251,16 +259,16 @@ paths:
     get:
       operationId: retrieveCustomUser
       parameters:
-      - name: format
-        in: path
-        required: true
-        description: ''
-        schema:
-          type: string
       - name: id
         in: path
         required: true
         description: A unique integer value identifying this user.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
         schema:
           type: string
       responses:
@@ -288,16 +296,16 @@ paths:
     put:
       operationId: updateCustomUser
       parameters:
-      - name: format
-        in: path
-        required: true
-        description: ''
-        schema:
-          type: string
       - name: id
         in: path
         required: true
         description: A unique integer value identifying this user.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
         schema:
           type: string
       requestBody:
@@ -342,16 +350,16 @@ paths:
     delete:
       operationId: destroyCustomUser
       parameters:
-      - name: format
-        in: path
-        required: true
-        description: ''
-        schema:
-          type: string
       - name: id
         in: path
         required: true
         description: A unique integer value identifying this user.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
         schema:
           type: string
       responses:
@@ -359,6 +367,7 @@ paths:
           description: ''
   /api/alert/:
     get:
+      summary: "Find all alert"
       operationId: listAlerts
       parameters: []
       responses:
@@ -383,6 +392,7 @@ paths:
                   - value
           description: ''
     post:
+      summary: "Add a new alert"
       operationId: createAlert
       parameters: []
       requestBody:
@@ -391,8 +401,7 @@ paths:
             schema:
               properties:
                 currency:
-                  enum:
-                  - BTC
+                  enum: ['BTC']
                 value:
                   type: integer
                 bigger_than:
@@ -493,6 +502,7 @@ paths:
           description: ''
   /api/alert/{id}/:
     get:
+      summary: "Find an alert by ID"
       operationId: retrieveAlert
       parameters:
       - name: id
@@ -521,6 +531,7 @@ paths:
                 - value
           description: ''
     put:
+      summary: "Modify an alert"
       operationId: updateAlert
       parameters:
       - name: id
@@ -563,6 +574,7 @@ paths:
                 - value
           description: ''
     delete:
+      summary: "delete an alert"
       operationId: destroyAlert
       parameters:
       - name: id
@@ -578,16 +590,16 @@ paths:
     get:
       operationId: retrieveAlert
       parameters:
-      - name: format
-        in: path
-        required: true
-        description: ''
-        schema:
-          type: string
       - name: id
         in: path
         required: true
         description: A unique integer value identifying this alert.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
         schema:
           type: string
       responses:
@@ -612,16 +624,16 @@ paths:
     put:
       operationId: updateAlert
       parameters:
-      - name: format
-        in: path
-        required: true
-        description: ''
-        schema:
-          type: string
       - name: id
         in: path
         required: true
         description: A unique integer value identifying this alert.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
         schema:
           type: string
       requestBody:
@@ -660,16 +672,16 @@ paths:
     delete:
       operationId: destroyAlert
       parameters:
-      - name: format
-        in: path
-        required: true
-        description: ''
-        schema:
-          type: string
       - name: id
         in: path
         required: true
         description: A unique integer value identifying this alert.
+        schema:
+          type: string
+      - name: format
+        in: path
+        required: true
+        description: ''
         schema:
           type: string
       responses:

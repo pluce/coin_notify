@@ -16,7 +16,7 @@ urlpatterns = [
         authentication_classes=[BasicAuthentication],
     ), name='openapi-schema'),
 
-    path('swagger-ui/', TemplateView.as_view(
+    path('api/doc/', TemplateView.as_view(
         template_name='swagger-ui.html',
         extra_context={'schema_url':'openapi-schema'}
     ), name='swagger-ui'),
