@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'rest_auth.registration',
     'django_crontab',
-
     'rest_framework_swagger',
     'django_extensions',
 
