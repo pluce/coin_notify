@@ -4,6 +4,7 @@ info:
     This is all the path for the CoinNotify API.
 
     You need to specify an Authorization token for all path. 
+
   version: "1.0.0"
   title: "CoinNotify"
   contact:
@@ -204,7 +205,7 @@ paths:
                   - value
           description: ''
     post:
-      summary: "Add a new alert"
+      summary: "Add a new alert (the field bigger_than tell if the alert is for BTC rate bigger or smaller than alert value if true alert will be send if BTC rate is bigger than alert value)"
       operationId: createAlert
       parameters: []
       requestBody:
