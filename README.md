@@ -26,7 +26,7 @@ Now you can access every path with the given token.
 
 For example if you want to list all the current users in the database :
 ```
-curl -X GET http://localhost:8000/api/users/ -H "Authorization:Token {YOUR ATHORIZATION-TOKEN}"
+curl -X GET http://localhost:8000/api/users/ -H "Authorization:Token YOUR ATHORIZATION-TOKEN"
 ```
 
 You can access the api's documentation at ```http://localhost:8000/api/doc/``` on your web browser.
