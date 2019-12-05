@@ -18,11 +18,11 @@ def send(alert, response):
     """
     if alert.bigger_than == 1:
         msg = ("""Hello %s.\n\nThis is an email to alert you that bitcoin """
-            """rate get beyond %s today %s""" %(
+            """rate get beyond %s USD today %s""" %(
             alert.owner, alert.value, response['time']))
     else:
         msg = ("""Hello %s.\n\nThis is an email to alert you that bitcoin """
-            """rate fell below %s today %s""" %(
+            """rate fell below %s USD today %s""" %(
             alert.owner, alert.value, response['time']))
     send_mail(
         'CoinNotify',
@@ -45,5 +45,3 @@ def send_mail_if():
             send(alrt, response)
             alrt.delete()
         
-def run():
-    send_mail_if()

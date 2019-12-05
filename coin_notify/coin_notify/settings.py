@@ -168,11 +168,12 @@ SWAGGER_SETTINGS = {
 }
 
 CRONJOBS = [
-    ('*/1 * * * *', 'coin_notify.cron.my_scheduled_job')
+    ('*/1 * * * *', 'coin_notify.cron.my_scheduled_job'),
+    ('*/1 * * * *', 'scripts.send_mail.send_mail_if')
 ]
 
 # Email settings
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'coinnotify42@gmail.com'
