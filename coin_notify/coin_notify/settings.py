@@ -168,7 +168,6 @@ SWAGGER_SETTINGS = {
 }
 
 CRONJOBS = [
-    ('*/1 * * * *', 'coin_notify.cron.my_scheduled_job'),
     ('*/1 * * * *', 'scripts.send_mail.send_mail_if')
 ]
 
